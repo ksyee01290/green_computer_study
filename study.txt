@@ -1,0 +1,16 @@
+id = # 으로 호출 class = .
+
+form method="get" action="Date" encType="UTF-8"
+속성 name가 백그라운드에서 읽힌다.
+readonly 읽기
+
+
+background      속성값
+
+image           url('img/OOO.jpg')
+repeat          no-repeat
+attachment      fixed
+position        right bottom
+clip            border-box
+origin          padding-box
+size            auto

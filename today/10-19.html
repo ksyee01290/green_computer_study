@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+    <title>오늘 한거 마무리</title>
+    <style>
+        table, th, td{
+            border:1px solid #ccc;
+        }
+        td {
+            padding:5px;
+        }
+        th {
+            padding:15px;
+        }
+        tr > td:nth-child(odd){
+            width:120px;
+        }
+        tr > td:nth-child(even){
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>제목본문 설명</h1>
+    <h1>제목</h1>
+    <h2>제목</h2>
+    <h3>제목</h3>
+    <h4>제목</h4>
+    <h5>제목</h5>
+    <h6>제목</h6>
+    <p>
+        본문본문본문본문본문본문본문본문본문<br>본문본문본문본문본문본문본문본문본문본문본문
+    </p>
+    <hr>
+    <h1>pre설명</h1>
+    <pre>
+        public class test{
+            public static void main(String[] args){
+                System.out.println("hello world");
+            }
+        }
+    </pre>
+    <hr>
+    <h1>strong,b,em,i설명</h1>
+    <p>
+        <strong>중요!! 강조 강조</strong>
+        <br>
+        <b>그냥 굵게 표시</b>
+    </p>
+    <p>
+        <em>중요 강조 기울기</em>
+        <br>
+        <i>별로 안중요 기울기</i>
+    </p>
+    <hr>
+    <h1>q,mark,span설명</h1>
+    <p>
+        <q>줄바꿈 없는 인용(따옴표 생김)</q>
+        <br>
+        <mark>형광물질 색고정</mark>
+    </p>
+    <div>
+        <span>줄 안에서 인라인?</span>
+    </div>
+    <hr>
+    <h1>ul설명</h1>
+    <ul>
+        <li>기호구분1
+            <ul>
+                <li>손자1</li>
+                <li>손자2</li>
+            </ul>
+        </li>
+        <li>기호구분2
+            <ul>
+                <li>구분2 손자1</li>
+                <li>구분2 손자2</li>
+            </ul>
+        </li>
+        <li>기호구분3
+            <ul>
+                <li>구분3 손자1
+                    <ul>
+                        <li>구분3 증손자1</li>
+                        <li>구분3 증손자2</li>
+                        <li>구분3 증손자3</li>
+                    </ul>
+                </li>
+                <li>구분3 손자2
+                    <ul>
+                        <li>구분3 손자2의 증손자1</li>
+                        <li>구분3 손자2의 증손자2</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <h1>ol설명</h1>
+    <ul>
+        <li>구분시작
+            <ol type="a">
+                <li>구분a</li>
+                <li>구분b</li>
+            </ol>
+        </li>
+        <li>구분시작인대 a로부터3번째시작
+            <ol type="a" start="3">
+                <li>구분c</li>
+                <li>구분d</li>
+                <li>구분e</li>
+            </ol>
+        </li>
+    </ul>
+    <hr>
+    <h1>dl설명</h1>
+    <dl>
+        <dt>dt는 제목</dt>
+        <dd>dd는 설명</dd>
+        <dd>계속 설명</dd>
+    </dl>
+    <hr>
+    <h1>표만들기 설명</h1>
+    <table>
+        <tr>
+            <th>제목0행 0열</th>
+            <td>0행 1열</td>
+            <td>0행 2열</td>
+        </tr>
+        <tr>
+            <th>제목1행 0열</th>
+            <td>1행 1열</td>
+            <td>1행 2열</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>temp</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>이름</th>
+            <td></td>
+            <th>나이</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>주소</th>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>자기소개</th>
+            <td colspan="3"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th></th>
+            <td rowspan="2"></td>
+            <th></th>
+            <td></td>
+        </tr>
+        <tr >
+            <th rowspan="2"></th>
+            <td></td>
+            <th></th>
+        </tr>
+        <tr>
+            <th colspan="3">어디</th>
+        </tr>
+    </table>
+
+</body>
+</html>

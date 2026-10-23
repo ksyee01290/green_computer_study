@@ -1,0 +1,63 @@
+/*초기화 부분*/
+*{
+    margin:0;
+    padding:0;
+}
+/*연습용 css*/
+
+fieldset.ea{
+    font-size:20px;
+    background-color:beige;
+}
+output{
+    color:rgb(93, 184, 153)
+}
+h2{
+    color:blue; /*글자색*/
+}
+p{
+    font-size:0.9em; /* 글자 크기 em은 반응형 자동*/
+    line-height:2.0; /*줄간격*/
+}
+/* 사람을 구체적으로 도와주는부분*/
+#container{
+    width:600px;
+    padding:15px;
+    border:1px dotted gray;
+}
+.bluetext{
+    color:blue;
+}
+h2.accent{
+    background-color:#222;
+    color:#fff;
+    padding:5px;
+}
+.browntext{
+    color:brown;
+}
+.boldtext{
+    font-weight:bold;
+}
+/* meter 부분*/
+form.meter{
+    background-color:#dfdddd;
+}
+form.meter ul li{
+    list-style:none;
+    margin: 15px 0;
+    font-size:14px;
+}
+/* 버튼 디자인*/
+form.but button.subm{
+    display:block;
+    background-color:#fff;
+    border:1px solid #dedede;
+    cursor:pointer;
+    padding:5px 10px 6px 7px;
+}
+form.but button.subm:hover{
+    background-color:#e6efc2;
+    border:1px solid #c5d880;
+    color:#529215;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>21일 종합</title>
+    <style>
+        section{
+            width:500px;
+            padding:15px;
+            border:4px solid gray;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <title>그럴듯한 계산기</title>
+        <fieldset class="ea">
+            <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                +<input type="number" name="num2" value="0">
+                =<output name="result" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset class="ea">
+            <form oninput="result1.value=parseInt(num1.value)-parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                - <input type="number" name="num2" value="0">
+                =<output name="result1" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset class="ea">
+            <form oninput="result2.value=parseInt(num1.value)*parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                * <input type="number" name="num2" value="0">
+                =<output name="result2" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset class="ea">
+            <form oninput="result3.value=parseInt(num1.value)/parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                / <input type="number" name="num2" value="0">
+                =<output name="result3" for="num"></output>
+            </form>
+        </fieldset>
+<hr>
+    <title>이름표</title>
+        <div>
+            <section>
+                <h2>정근원</h2>
+                <p>백엔드 기술개발에 관심이 많습니다.<br>
+                현재 지상 10층 높이의 건물 10층에서 코딩중입니다.</p>
+            </section>
+        </div>
+<hr>
+    <div id="container">
+        <h1>회사 소개</h1>
+
+        <h2 class="accent">"사람을 구체적으로 도와주는 책"</h2>
+        <p>이지스퍼블리싱(주)의 책에는<span class="browntext boldtext">
+            '사람들에게 구체적으로 도움이 되는 책'을 만든다는 출판 가치가 담겨 있습니다.</span></p>
+        <p>2010년 5월 출범한 이지스퍼블리싱(주)는 크게 두영역의 책을 출간합니다. it 실용도서와 학습 분야 도서입니다.
+            IT 교재와 사진 책 등 실용서는 이지스퍼블리싱 브랜드로,
+            학습과 자녀교육 도서는 이지스에듀 브랜드로 출간하고 있습니다.
+        </p>
+        <h2 class="bluetext">이지스퍼블리싱의 미션</h2>
+        <p>사람에게 구체적으로 <span class="bluetext">도움</span>을 주는 책<br>
+        우리는 열심히 사는 사람들에게 도움이 되고 싶습니다.<br>
+        우리는 책을 출간하기 전에 질문할 것입니다.<br>
+        "이 책이 사람들에게 도움이 됩니까?"</p>
+
+        <p class="bluetext">정보의 지름길을 만들어 빠르게 원하는 곳으로 가도록 도와주는 책,
+        손에 잡히는 이익을 얻을수 있도록 도움이 되는 책을 만들고 싶습니다.
+        </p>
+    </div>
+<hr>
+    <form class="meter">
+        <ul>
+            <li>
+                <label>점유율 0.8</label>
+                <meter value="0.8"></meter>
+            </li>
+            <li>
+                <label>사용량 64%</label>
+                <meter min="0" max="100" value="64"></meter>
+            </li>
+            <li>
+                <label>트래픽 초과</label>
+                <meter min="1024" max="10240" low="2048" high="8192" vlaue="9216"></meter>
+            </li>
+            <li>
+                <label>적절한 트래픽</label>
+                <meter value="0.5" optimum="0.8"></meter>
+            </li>
+        </ul>
+    </form>
+<hr>
+    <form class="but">
+        <button type="submit" class="subm">전송하기</button>
+    </form>
+</body>
+</html>

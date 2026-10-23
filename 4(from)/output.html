@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>그럴듯한 사칙연산</title>
+    <style>
+        input{
+            font-size:20px;
+            height:20px;
+            width: 50px;
+        }
+        form{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <title>그럴듯한 계산기</title>
+    <form>
+        <fieldset>
+            <legend>더하기</legend>
+            <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                + <input type="number" name="num2" value="0">
+                =<output name="result" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>빼기</legend>
+            <form oninput="result1.value=parseInt(num1.value)-parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                - <input type="number" name="num2" value="0">
+                =<output name="result1" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>곱하기</legend>
+            <form oninput="result2.value=parseInt(num1.value)*parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                * <input type="number" name="num2" value="0">
+                =<output name="result2" for="num"></output>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>나누기</legend>
+            <form oninput="result3.value=parseInt(num1.value)/parseInt(num2.value)">
+                <input type="number" name="num1" value="0">
+                / <input type="number" name="num2" value="0">
+                =<output name="result3" for="num"></output>
+            </form>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
