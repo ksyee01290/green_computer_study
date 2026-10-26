@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        body{
+            font: 14px 맑은 고딕;
+        }
+        .container{
+            position:absolute;
+            width: 950px;
+            margin:0 auto;
+            background-color:#fff;
+            border:1px solid #e7e7e7;
+            padding:10px;
+        }
+        header{
+            position:relative;
+            height: 280px;
+            background-image: url('img/vips.jpg');
+            background-repeat: no-repeat;
+            background-position:left top;
+            background-size:cover;
+
+        }
+        header h1{
+            position:absolute;
+            right:20px;
+            bottom:70px;
+            font-size:3em;
+            color:#ffc;
+            text-shadow:1px 2px 2px #000;
+        }
+        header h2{
+            position:absolute;
+            right:20px;
+            bottom:30px;
+            font-size:2em;
+            color:#ff0;
+            text-shadow:0px 1px 1px #000;
+        }
+        .navi{
+            position:relative;
+            background:#271717;
+            margin-top:-15px;
+            width:950px;
+            height:60px;
+        }
+        .navi ul{
+            list-style: noen;
+            height:40px;
+            padding-top:10px;
+            padding-bottom:5px;
+        }
+        .navi ul li{
+            display:inline-block;
+            font-size:15px;
+        }
+        .navi a, .navi a:visited{
+            padding: 10px 5px 5px 35px;
+            display: block;
+            color:#fff;
+            width: 150px;
+            text-decoration:none;
+        }
+        .navi a:hover, .navi a:active, .navi a:focus{
+            text-shadow:0px 2px 2px #000;
+            color:#fc0;
+        }
+        header, section, footer, aside, article, figure{
+            display: block;
+        }
+        section{
+            float:left;
+            width:720px;
+        }
+        .sidebar{
+            float:right;
+            width:200px;
+            height:700px;
+            padding-top:20px;
+            padding-left:10px;
+            padding-right:10px;
+            background:rgb(156, 218, 156);
+        }
+        .sidebar img{
+            margin-bottom:5px;
+            height:148px;
+            border:1px solid #ccc;
+            opacity:0.5;
+            text-align:center;
+        }
+        .sidebar img:hover{
+            border:1px solid #000;
+            opacity:1.0;
+        }
+        footer{
+            padding:5px 0;
+            background-color: #030;
+            color:#fff;
+            text-align:center;
+            clear:both;
+        }
+        .banner{
+            margin:0 10px 15px 10px;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vips</h1>
+                <h2>가장 vips다운 vips집</h2>
+        </header>
+        <nav class="navi">
+            <ul>
+                <li><a href="#">브랜드</a></li>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">시즌이벤트</a></li>
+                <li><a href="#">예약하기</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article class="content">
+                <h2>vips 소개</h2>
+                <h3>
+                    Premium Steak & Seasonal Salad Bar
+                </h3>
+                <p>
+                    빕스는 프리미엄 스테이크와 계절마다 변하는 다채롭고 신선한 샐러드바로 고객에게 특별한 외식 경험을 선사하는 NO.1 패밀리 레스토랑으로 사랑받고 있습니다.
+                </p>
+                <h3>
+                    다채롭고 새로운 스테이크와 샐러드바
+                </h3>
+                <p>
+                    포터하우스, 토마호크 같은 최상급 부위로 즐기는 프리미엄 스테이크부터 시그니처 얌스톤 위에서 생동감 있는 시즐링과 취향에 맞는 굽기로 즐기는 서로인, 텐더로인 스테이크까지 다양한 스테이크를 즐기실 수 있고 시즌별로 새로운 테마의 전문성 있는 조닝 구성의 다채로운 샐러드바로 풍성한 메뉴 경험을 제공합니다.
+                </p>
+                <h3>
+                    고품질의 서비스와 고급스럽고 세련된 공간
+                </h3>
+                <p>
+                    신선한 재료와 좋은 음식 품질로 최상의 서비스를 제공하고자 노력하며 고급 식문화인 와인과 페어링 푸드를 선사하고자 와인&페어링 존을 도입하여 전점 확산하며 프리미엄 전략에 박차를 가하고 있습니다. 인테리어 또한 호텔 라운지와 같은 고급스럽고 세련된 분위기로 업그레이드 하여 특별한 다이닝 공간을 선사합니다.
+                </p>
+                <div class="banner"><img src="img/banner.jpg" width="700" height="300" alt="빕스"></div>
+            </article>
+        </section>
+        <aside class="sidebar">
+            <h3># 알립니다</h3>
+            <p>
+                vips 예약은 전화 010-####-#### 로 직접 통화하시는게 가장 정확하고 빠릅니다.
+                일반 전화이므로 시외 전화 요금이 부과됩니다.
+            </p>
+            <img src="img/aside1.jpg" alt="">
+            <img src="img/aside2.jpg" alt="">
+            <img src="img/aside3.jpg" alt="">
+        </aside>
+        <footer>
+            <address>
+                <p>대전광역시 둔산동 00번지</p>
+                <p>foeijfksld.naver.com</p>
+            </address>
+            <p>copyright all rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

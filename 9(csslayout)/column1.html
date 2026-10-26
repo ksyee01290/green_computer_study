@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:"맑은 고딕", "고딕", "굴림";
+        }
+        section{
+            padding:20px;
+            width:600px;
+            margin:20px auto;
+            border:1px solid #ccc;
+            border-radius:10px;
+        }
+        .multi{
+            -webkit-column-count:4;
+            -moz-column-count:4;
+            column-count:4;
+            -webkit-column-rule:2px solid green;
+            -moz-column-rule:2px solid green;
+            column-rule:2px solid green;
+            text-align:justify;
+        }
+        .no-col{
+            background:#f0f0f0;
+            margin:10px 3px;
+            padding:20px;
+            border-radius:5px;
+            -webkit-column-span:all;
+            -moz-column-span:all;
+            column-span:all;
+        }
+        .nulti h3{
+            break-before:column;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>건강에 좋은식품</h2>       
+        <h3>코코넛 오일</h3>
+        <p>
+            상온에서 고체인 경우가 종종 있는데, 코코넛 오일은 불포화 지방산이 기반인 다른 식물성 기름과는 다르게, 포화 지방산이 전체의 87%를 차지하고 있기 때문이다. 식물성 식용유 중에서도 포화지방 함량이 낮은 올리브유(100g당 14g, 불포화지방 84g)와 비교해 보면 포화지방 함량이 상당히 높은 축에 속한다. 이 때문에 녹는점도 24°C로, 식물성 기름 중에선 높은 편이며, 여름 한철 동안 액체였다가도 가을만 돼도 응고되기 시작한다.
+        </p>
+        <div class="multi">
+            <h3>아보카도</h3>
+            <p>
+                가히 망고 씨, 동백나무 열매나 탁구공에 버금갈 정도로 씨가 크다. 하지만 잘 익은 아보카도는 손질하는 방법이 어렵지 않다. 망고와 동일하게 껍질을 벗기지 않고, 가운데에 칼을 슬근슬근 집어넣으면 딱딱한 씨에 닿는다. 그때 적도 선 긋듯이 빙 둘러 자르고 비틀어 떼면 쉽게 두 쪽으로 분리할 수 있고, 손가락으로 씨를 쉽게 빼낼 수 있다.[1] 그 다음 숟가락으로 과육을 퍼내서 사용한다. 씨앗이 상당히 단단하기 때문에 칼로 씨를 제거하다 다치는 사례가 종종 있다. 가급적 손 위에 아보카도를 올려놓고 칼질하는 것은 피하는 것이 좋다.
+            </p>
+            <h3>케일</h3>
+            <p>
+                그리고 비타민K 함량도 높은데, 혈액을 맑게 해주고 면역력 상승에 도움 된다. 비타민K 함량이 많은 브로콜리의 2.5배, 샐러리의 약 10배나 더 많이 들어있다. 또 십자화과 채소답게 설포라판 성분이 많아 활성산소를 제거하고 해독에 뛰어나다. 식이섬유 역시 많아서 해독 및 다이어트에 도움 된다. 흔히 갈아서 주스로[2] 섭취하는 게 더 좋다. 7~8월이 제철인 식품으로 오이와 함께 섭취 시 더 도움이 된다.[3]
+            </p>
+            <h3>블루베리</h3>
+            <p>
+                넓게는 산앵도나무속(Vaccinium spp.)에 속한 여러 종들 중 검푸른 열매를 맺는 대부분의 식물들을 뭉뚱그려 블루베리라고 부르며, 동아시아가 원산지인 들쭉나무와 정금나무 및 지포나무, 유럽의 빌베리(bilberry)도 블루베리의 일종으로 간주된다. 물론 산앵도나무나 크랜베리(넌출월귤), 월귤(링곤베리)처럼 열매가 빨간 종들은 당연히 제외된다.
+            </p>
+            <div class="no-col">
+                <h3>아몬드</h3>
+                <p>
+                    아몬드는 자가수분이 되지 않으므로 반드시 아몬드 나무의 꽃을 수분시켜야 아몬드 열매를 맺는다. 그래서 미국에서는 아몬드꽃이 피는 시기에 양봉업자들을 대규모로 불러 모아서 꿀벌들이 수분을 돕도록 유도하는 일을 돈 주고 의뢰한다. 이 양봉업자도 아몬드꽃의 꿀을 모아 판매하기도 한다. Almond blossom honey라고 한다.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
