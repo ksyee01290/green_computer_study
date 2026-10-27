@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#ccc;
+        }
+        #container{
+            width:404px;
+            margin:50px auto;
+            border:1px solid #000;
+        }
+        header{
+            position: relative;
+            width:400px;
+            height:150px;
+            margin:1px;
+            border:1px solid #000;
+            background-color:#ffffff;
+            text-align:center;
+        }
+        header h1{
+            line-height:4;
+        }
+        .card{
+            position:relative;
+            width:400px;
+            height:150px;
+            margin:1px;
+            border:1px solid #000;
+            background-color:#ffffff;
+        }
+        footer{
+            position:relative;
+            width:400px;
+            height:150px;
+            margin:1px;
+            border:1px solid #000;
+            background-color:#8ab3e2;
+            text-align:center;
+        }
+        @media screen and (min-width:768px) and (max-width:1719px){
+            #container{
+                width:570px;
+                margin:30px auto;
+            }
+            header{
+                position: relative;
+                width:566px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#ffffff;
+                text-align:center;
+            }
+            header h1{
+                line-height:4;
+            }
+            .card{
+                position:relative;
+                float:left;
+                width:282px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#ffffff;
+            }
+            #card5{
+                width:566px;
+            }
+            footer{
+                clear:both;
+                position:relative;
+                width:566px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#8ab3e2;
+                text-align:center;
+            }
+        }
+        @media screen and (min-width:1720px){
+            #container{
+                width:1508px;
+                margin:30px auto;
+            }
+            header{
+                position: relative;
+                width:1504px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#ffffff;
+                text-align:center;
+            }
+            header h1{
+                line-height:4;
+            }
+            .card{
+                position:relative;
+                float:left;
+                width:500px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#ffffff;
+            }
+            #card5{
+                width:66.5%;
+            }
+            footer{
+                clear:both;
+                position:relative;
+                width:1504px;
+                height:150px;
+                margin:1px;
+                border:1px solid #000;
+                background-color:#8ab3e2;
+                text-align:center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+        <section>
+            <article class="card" id="card1"></article>
+            <article class="card" id="card2"></article>
+            <article class="card" id="card3"></article>
+            <article class="card" id="card4"></article>
+            <article class="card" id="card5"></article>
+        </section>
+        <footer>
+            <h1>푸터</h1>
+        </footer>
+    </div>
+</body>
+</html>
