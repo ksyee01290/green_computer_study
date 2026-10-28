@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        //조건문
+        var mon = prompt("현재는 몇 월 입니까?","0");
+
+        if(mon >= 9 && mon <= 11){
+            document.write("독서의 계절 가을이네요"+"<br>");
+        }else if(mon >= 6 && mon <= 8){
+            document.write("여행 가기 좋은 여름이네요"+"<br>");
+        }else if(mon >= 3 && mon <= 5){
+            document.write("햇살 가득한 봄이네요"+"<br>");
+        }else{
+            document.write("스키의 계절 겨울이네요"+"<br>");
+        }
+        //location 틀리면 계속 반복
+        var id ="easy1004";
+        var pw = "112233";
+
+        var user_id = prompt("아이디는?", "");
+        var user_pw = prompt("비밀번호는?" ,"");
+
+        if(id == user_id){
+            if(pw == user_pw){
+                document.write(user_id+"님 반값습니다."+"<br>");
+            }else{
+                alert("비밀번호가 일치하지 않습니다."+"<br>");
+                location.reload();
+            }
+        }else{
+            alert("아이디가 일치하지 않습니다."+"<br>");
+            location.reload();
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

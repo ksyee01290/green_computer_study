@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        //증감 연산자
+        var num1 =10;
+        var num2 = 20;
+        var result;
+
+        result = --num2;
+        document.write(num2--,"<br>");
+        document.write(result,"<br>");
+
+        result = num2++;
+        document.write(result,"<br>");
+
+        result = ++num2;
+        document.write(result,"<br>");
+
+        //삼항 조건 연산자
+        var a = 10;
+        var b = 3;
+        var result = a>b ? "javascript" : "hello";
+        document.write(result+"<br>");
+
+        //논리 연산자
+        var name = prompt("당신의 이름은?", "");
+        var height = prompt("당신의 신장은?", "0");
+        var weight = prompt("당신의 몸무게는?", "0");
+
+        var normal_w = (height - 100) * 0.9;
+        var result = weight >= normal_w -5 && weight <= normal_w + 5;
+        result = result ? "적정체중" : "적정체중 아님";
+        document.write(name+"님은 "+result+"<br>");
+
+        var result1 = weight >= normal_w || weight <= normal_w;
+        result = result ? "그럭저럭" : "그럭저럭아님";
+        document.write(name+"님은 "+result+"<br>");
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

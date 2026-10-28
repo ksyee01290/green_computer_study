@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        //두개의 숫자를 입력받아 사칙연산 계산
+        while(true){            
+            var num = prompt("사칙연산을 고르시오", "");
+            
+            var num1 = prompt("수입력", "0");
+            var num2 = prompt("수입력" ,"0");
+
+            var result=0;
+            if(num=="+"){       
+                result = num1+num2;
+                alert("num1"+"+"+"num2"+"="+result);
+            }else if(num=="-"){
+                result = num1-num2;
+                alert("num1"+"-"+"num2"+"="+result);
+            }else if(num=="*"){
+                result = num1*num2;
+                alert("num1"+"*"+"num2"+"="+result);
+            }else if(num=="/"){
+                result = num1/num2;
+                alert("num1"+"/"+"num2"+"="+result);
+            }
+    
+    }
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
