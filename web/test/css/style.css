@@ -1,0 +1,70 @@
+body{
+    font-family:"맑은 고딕", "고딕", "굴림"
+}
+table, th, td{
+    border:1px solid #000;
+}
+.table1{
+    border-collapse:collapse;
+    text-align:center;
+}
+td{
+    width:120px;
+    padding:5px;
+}
+tr{
+    height:50px;
+}
+th{
+    background-color:#ccc;
+}
+.main2 #pt{
+    text-align:center;
+}
+.main3 fieldset{
+    width:auto;
+    height:150px;
+}
+.main3 ul li{
+    list-style-type: none;
+}
+
+.fild1 label, .fild2 label{
+    display:block;
+    width:100px;
+}
+.fild1 input, .fild2 input{
+    display:flex;
+    width:100px
+}
+.fild1 li{
+    float:left;
+    margin-left:20px;
+}
+.fild2 li{
+    float:left;
+    
+}
+
+.fild1, .fild2, .fild3{
+    font-size:12px;
+}
+.fild3 textarea{
+    width:330px;
+    height:30px;
+}
+
+.subm, .subm2{
+    float:left;
+    margin-left:5px;
+    width:170px;
+    height:50px;
+}
+.subm{
+    background-color:rgb(27, 27, 95);
+    color:white;
+}
+.subm2{
+    background-color:rgb(45, 93, 197);
+    color:white;
+}

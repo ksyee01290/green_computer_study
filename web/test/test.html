@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .main{
+            display:flex;
+        }
+        
+        #wrapper{
+            width:100%;
+            height:auto;
+            border:1px solid #ccc;
+            background-color:antiquewhite;
+        }
+        header h1{
+            float:left;
+            color:white;
+        }
+        header{
+            width:100%;
+            height:100px;
+            background-color:black;
+            background:url(bg0.jpg) no-repeat;
+            background-size:cover;
+        }
+        header nav{
+            float:left;
+            width:70%;
+        }
+        nav ul{
+            list-style: none;
+            height:40px;
+            padding-top:10px;
+            padding-bottom:5px;
+        }
+        nav ul li{
+            display:inline-block;
+            font-size:18px;
+        }
+        nav ul li a, a:visited{
+            padding: 10px 5px 5px 20px;
+            display: block;
+            color:#fff;
+            width: 100px;
+            text-decoration:none;
+        }
+        nav a:hover, nav a:active, nav a:focus{
+            text-shadow:0px 2px 2px #000;
+            color:rgb(76, 174, 255);
+        }
+        .main article{
+            background-color:white;
+            border:1px solid #ccc;
+            margin:10px;
+            margin-top:30px;
+            padding:10px;
+            width:30%;
+        }
+        .main1 ul li{
+            list-style-type:"✓ ";
+        }
+        .box1{
+            background-color:blanchedalmond;
+            width:auto;
+            height:120px;
+            border:1px solid #ccc
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Web Retreat</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">리트릿 소개</a></li>
+                    <li><a href="#">학습 일정</a></li>
+                    <li><a href="#">객실 예약</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main">
+            <article class="main1">
+                <h1>웹 개발 학습 리트릿</h1>
+                <p>Learning Retreat</p>
+                <h3>배움과 럭셔리의 완벽한 조화</h3>
+                <ul>
+                    <li>HTML5 & CSS 기초 마스터</li>
+                    <li>실습 중심 프로젝트 개발</li>
+                    <li>현대적인 웹 표준(HTML5)</li>
+                    <li>문법 및 구조: 기초부터 심화까지</li>
+                </ul>
+                <p>현대적이고 구조화된 웹 페이지 구축 방법을 배우세요.
+                    <strong>구조</strong>(<mark>핵심 개념</mark>) 및 스타일과 같은 기초 요소를 마스터하세요.
+                </p>
+                <div class="box1">
+                    <pre><피알이> 태그를 사용하면
+공백이나
+줄 바꿈이 입력된 그대로 유지
+됩니다.
+</pre>
+                </div>
+            </article>
+            <article class="main2">
+                <h1>주간 학습 여정</h1>
+                <p>Journey</p>
+                <h3>HTML5 학습 일정</h3>
+                <table class="table1">
+                    <tr>
+                        <th>주차</th>
+                        <th>주제</th>
+                        <th>실습 내용</th>
+                        <th>진행방식</th>
+                    </tr>
+                    <tr>
+                        <td>WEEK 1</td>
+                        <td colspan="2">
+                            Foundations - 텍스트 및 목록 구조 마스터
+                        </td>
+                        <td>온라인</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">WEEK 2</td>
+                        <td rowspan="2">
+                            Applications(심화 적용)
+                        </td>
+                        <td>이력서 폼 & 멀티미디어</td>
+                        <td>대면</td>
+                    </tr>
+                    <tr>
+                        <td>비디오/오디오 삽입</td>
+                        <td>대면</td>
+                    </tr>
+                </table>
+                <p id="pt">2주 과정 수료 시 인증서 수여</p>
+            </article>
+            <article class="main3">
+                <h1>오션 스위트 예약</h1>
+                <p>* 당신의 완벽한 휴식을 위한 프리미엄 객실을 예약하세요.</p>
+                <form>
+                    <fieldset class="fild1">
+                        <legend>연락처 정보</legend>
+                        <ul>
+                            <li>
+                                <label for="user_name">성명(법적 실명)</label>
+                                <input type="text" id="user_name" style="width:230px;">
+                            </li>
+                            <li>    
+                                <label for="phone">전화번호</label>
+                                <input type="tel" id="phone">
+                            </li>       
+                            <li>
+                                <label for="mail">이메일 주소</label>
+                                <input type="email" id="mail">
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="fild2">
+                        <legend>예약 상세</legend>
+                        <ul>
+                            <li>
+                                <label for="day">도착 날짜</label>
+                                <input type="date" id="day">
+                            </li>
+                            <li>
+                                <label class="reg" for="uclass">객실 유형</label>
+                                <select id="uclass">
+                                    <option value="a" selected>오션뷰 스위트</option>
+                                    <option value="b">비치프론트 빌라</option>
+                                    <option value="c">가른 스위트</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="ran">숙박 인원(최대 4인)</label>
+                                <input type="text" id="ran" value="1" min="1" max="4">
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="fild3">
+                        <legend>추가 옵션</legend>
+                        <p>식사 서비스:</p>
+                        <label><input type="radio" name="subject">조식 포함</label>
+                        <label><input type="radio" name="subject">포함 안함</label>
+                        <br>
+                        <label><input type="checkbox" name="subject1">리조트 픽업 서비스</label>
+                        <label><input type="checkbox" name="subject1">레이트 체크아웃</label>
+                        <p>특별 요청사항</p>
+                        <textarea name="intro" cols="60" rows="5">
+식단 관련 요구나 기타 요청 사항을 적어주세요.
+                        </textarea>
+                    </fieldset>
+                    <form class="but">
+                        <button type="submit" class="subm">예약 확정</button>
+                        <button type="submit" class="subm2">처음부터 다시</button>
+                    </form>
+                </form>
+            </article>
+        </section>
+        <aside>
+            
+        </aside>
+        <footer>
+            
+        </footer>
+    </div>
+</body>
+</html>
