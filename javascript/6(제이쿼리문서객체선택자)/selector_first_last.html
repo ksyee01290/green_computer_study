@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //li:first는 만약 ul안에들어있는 첫번째가 li일 경우에 true
+        //li:last는 만약 ul 안에 들어있는 마지막이 li일 경우 true
+        $(function(){
+            $("#menu li:first")
+            .css({"background-color":"#ff0"});
+            
+            $("#menu li:last")
+            .css({"background-color":"#0ff"});
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+</body>
+</html>

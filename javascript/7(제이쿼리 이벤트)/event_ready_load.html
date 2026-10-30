@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //중요
+        $(function(){
+            $(document).ready(function(){
+                var h1 = $(".img1").height();
+                console.log("ready:",h1);
+            });
+            $(window).load(function(){
+                var h2 = $(".img1").height();
+                console.log("load:",h2);
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <img src="http://place-hold.it/300X300" class="img1">
+    </p>
+</body>
+</html>

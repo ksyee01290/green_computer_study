@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // 수정하면 안되는 텍스트간에 직접 입력하는게 아니라 컴퓨터의 
+        // 신호를 거쳐서 입력이되게끔
+        function fn_process(){
+            var value = $("#t_input").val();
+            $("#t_output").val(value);
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="t_input"/>
+    <input type="button" value="입력하기" onClick="fn_process()"/><br><br>
+    <div>
+        결과:<br>
+        <input type="text" id="t_output" disabled/>
+    </div>
+</body>
+</html>

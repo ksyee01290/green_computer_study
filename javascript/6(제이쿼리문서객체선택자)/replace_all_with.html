@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // With는 선택 요소를 새요소로 바꿀때
+        // all은 원하는 요소 전부를 바꿀때
+        $(function(){
+            $("h2").replaceWith("<h3>replace method</h3>");
+            $("<p>Change</p>").replaceAll("div");
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <section class="box1">
+        <h2>제목1</h2>
+        <div>내용1</div>
+        <div>내용2</div>
+    </section>
+    <section class="box2">
+        <h2>제목2</h2>
+        <div>내용3</div>
+        <div>내용4</div>
+    </section>
+</body>
+</html>

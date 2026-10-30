@@ -17,6 +17,7 @@
         }
     </script>
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
         *{
             margin:0;
@@ -27,11 +28,11 @@
     </style>
 </head>
 <body>
-    <div id="galleryZone">
-        <p><img src="img/pic_1.jpg" id="photo" alt=""></p>
-        <p>
-            <button onclick="gallery(0)">이전</button>
-            <button onclick="gallery(1)">다음</button>
+    <div class="d-flex flex-column mb-3" id="galleryZone">
+        <p><img src="img/pic_1.jpg" id="photo" alt="" class="border border-3 border-primary"></p>
+        <p class="p-2">
+            <button class="text-danger border border-primary-subtle w-25 p-2 fs-3 shadow p-3 mb-5 bg-body-tertiary rounded" onclick="gallery(0)">이전</button>
+            <button class="text-warning border border-primary-subtle w-25 p-2 fs-3 shadow p-3 mb-5 bg-body-tertiary rounded" onclick="gallery(1)">다음</button>
         </p>
     </div>
 </body>

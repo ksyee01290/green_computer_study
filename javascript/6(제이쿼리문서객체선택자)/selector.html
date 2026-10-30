@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //전체 선택자
+        $(function(){
+            $("*").css("border","1px solid blue")
+            .css("padding","5px");
+        });
+        //아이디 선택자
+        $(function(){
+            $("#tit").css("background-color","yellowgreen")
+            .css("border","2px solid #f00");
+        });
+        //클래스 선택자
+        $(function(){
+            $(".tit").css("background-color","#ff0")
+            .css("border","2px dashed #blueviolet");
+        });
+        //그룹 선택자
+        $(function(){
+            $("h4, #tit3").css("background-color","#0ff")
+            .css("border", "2px dashed #brown");
+        });
+        //종속 선택자
+        $(function(){
+            $("h2.tit").css("background-color","antiquewhite")
+            .css("border","3px dashed brown");
+        });
+    </script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h2 id="tit">아이디선택자</h2>
+    <h1 class="tit">클래스 선택자</h2>
+    <h3 id="tit3">그룹선택자</h3>
+    <h3>인접 선택자</h3>
+    <h2 class="tit">종속 선택자</h2>
+    <h4>그룹 선택자</h4>
+</body>
+</html>
