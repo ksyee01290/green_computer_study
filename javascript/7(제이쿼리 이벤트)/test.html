@@ -5,7 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(function(){
-            $("header, section, footer,article").css("border","1px solid black")
+            $("header, section, footer").css("border","1px solid black")
             .css("padding","5px").css("margin","0 5px");
         });
         $(function(){
@@ -13,6 +13,10 @@
         });
         $(function(){
             $(".im").css("margin","0px").css("padding","0px").css("display","flex");
+        });
+        $(function(){
+            $(".im2").css("height","200px").css("padding","0px").css("display","flex")
+            .css("border","1px solid black");
         });
         $(function(){
             $(".im div").css("border","1px solid black");
@@ -23,14 +27,21 @@
 
         $(function(){
             $(".food1").on({
-                "mouseover focus": function(){
+                "mouseover": function(){
                     $(".txt1").css({"display":"block"});
                 },
-                "mouseout blur": function(){
+                "mouseout": function(){
                     $(".txt1").css({"display":"none"});
                 }
             });
         });
+
+        $(function(){
+            $(".fo2").click(function(){
+                $(".fo2").css({"background-color":"#ccc"}).css({"color":"red"});
+            });
+        });
+        
 
         
     </script>
@@ -41,20 +52,63 @@
 </head>
 <body>
     <header class="mw-100 text-center">
-        <h1>헤더</h1>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+            <a class="navbar-brand fs-2" href="#">vips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">링크</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    메뉴
+                    </a>
+                    <ul class="dropdown-menu" data-bs-theme="light">
+                    <li><a class="dropdown-item" href="#">스테이크</a></li>
+                    <li><a class="dropdown-item" href="#">음료</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">도움?</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
     </header>
     <section>
         <article class="p-3 m-0 border-0 bd-example m-0 border-0">
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/pic_2.jpg" class="d-block w-50" alt="...">
+                        <img src="img/pic_2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>오랜지파인탄산</h5>
+                            <p>오랜지와 파인애플을 갈아서 층층이쌓은 탄산음료</p>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="img/pic_4.jpg" class="d-block w-50" alt="...">
+                        <img src="img/pic_4.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>스테이크 스파게티</h5>
+                            <p>기본베이스인 스파게티에 스테이크를 올림</p>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="img/pic_6.jpg" class="d-block w-50" alt="...">
+                        <img src="img/pic_6.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -72,14 +126,21 @@
                 <img src="img/pic_2.jpg" class="d-block w-100 h-100 object-fit-cover">
                 <p class="txt1 position-absolute bottom-0 start-0 w-100
                 text-center bg-dark bg-opacity-75 p-3 m-0">
-                <a href="#" class="text-white text-decoration-none fs-5">맛있는 음식</a></p>
+                    <a href="#" class="text-white text-decoration-none fs-5">맛있는 음식</a>
+                </p>
             </div>
             <div class="food2 position-relative">
                 <img src="img/pic_4.jpg" class="d-block w-100 h-100 object-fit-cover">
+                <p class="txt2 position-absolute bottom-0 w-100 text-center
+                bg-dark bg-opacity-50 p-3 m-0">
+                    <a href="#" class="fo2 text-decoration-none fs-5">변화 체크</a></p>
             </div>
-            <div class="food2 position-relative">
+            <div class="food3 position-relative">
                 <img src="img/pic_6.jpg" class="d-block w-100 h-100 object-fit-cover">
             </div>
+        </article>
+        <article class="im2">
+
         </article>
     </section>
     <footer class="text-center">
