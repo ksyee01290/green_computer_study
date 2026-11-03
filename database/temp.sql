@@ -110,7 +110,7 @@ SELECT EMPNO, ENAME, SAL, DEPTNO
 FROM emp 
 WHERE DEPTNO = 10;
 
---
+--UPPER 와 LOWER은 대소문자 변환해주는 함수이다
 SELECT *
 FROM EMP
 WHERE UPPER(ENAME) = UPPER('scott');
@@ -123,7 +123,7 @@ SELECT *
 FROM emp
 WHERE LOWER(ENAME) = LOWER('scott');
 
---
+--LENGTH는 상당히 중요한 함수다 길이를 재주는 함수인데 쓰임세가 무궁무진하다
 SELECT ENAME, LENGTH(ENAME)
 FROM emp;
 
