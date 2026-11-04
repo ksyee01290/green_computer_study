@@ -131,21 +131,22 @@ SELECT ENAME, LENGTH(ENAME)
 FROM emp
 WHERE LENGTH(ENAME) >= 5;
 
---
+--문자열의 일부분 범위를 지정해서 추출한다
 SELECT job, SUBSTR(job, 1, 2), SUBSTR(job, 3, 2), SUBSTR(job, 5)
 FROM emp;
 
---
+--INSTR 같은경우는 특정 문자를 찾는 역할을한다.
 SELECT * FROM emp
 WHERE INSTR(ENAME, 'S') > 0;
 
---
+-- REPLACE는 스페이스바나 특정문자를 없애주는 역할을 한다.
 SELECT '010-1234-5678' AS REPLACE_BEFORE,
 REPLACE('010-1234-5678','-',' ') AS REPLACE_1,
 REPLACE('010-1234-5678','-') AS REPLACE_2
 FROM DUAL;
 
---
+--L,RPAD 같은경우는 문자열에 스페이스바를 삽입하거나 특정문자를 삽입할때
+--사용한다 각각 왼쪽과 오른쪽이다 예시는 아래와 같다
 SELECT 'Oracle',
 LPAD('Oracle',10,'#') AS LPAD_1,
 RPAD('Oracle',10,'*') AS LPAD_1,
@@ -153,20 +154,25 @@ LPAD('Oracle',10) AS LPAD_2,
 RPAD('Oracle',10) AS LPAD_2
 FROM DUAL;
 
---
+--concat 는 두 문자열 데이터를 합치는 경우에 사용한다 아래와같이 중첩으로 사용 가능하다.
+--테이블에있는 데이터와 입의의 데이터를 합친 concat 데이터를 합칠수 있다.
 SELECT CONCAT(empno, ename),
 CONCAT(empno, CONCAT(' : ',ENAME))
 FROM emp
 WHERE ENAME = 'SCOTT';
 
---
+--TRIM 은 스페이스바와 같은 데이터를 지워주는 역할을 한다.
+--LEADING FROM 같은경우는 오른쪽 스페이스바는 남기고 왼쪽만 지운다
+--TRAILING FROM 같은경우는 왼쪽 스페이바는 남기고 오른쪽만 지운다
+--BOTH FROM 같은 경우는 양쪽모두의 스페이스바를 지운다
+--단 위 4개의 모든경우에 문자와 문자간의 스페이스바는 지우지 않는다.
 SELECT '[' || TRIM('  Oracle  SAS  AAA  ') || ']' AS TRIM,
 '[' || TRIM(LEADING FROM '  Oracle     ') || ']' AS TRIM_LEADING,
 '[' || TRIM(TRAILING FROM '  Oracle     ') || ']' AS TRIM_TRAILING,
-'[' || TRIM(BOTH FROM '  Oracle     ') || ']' AS TRIM_BOTH
+'[' || TRIM(BOTH FROM '  Oracl  e     ') || ']' AS TRIM_BOTH
 FROM DUAL;
 
---
+--ROUND는 소수점을 어디까지 반올림을 표현할지에대한 함수다
 SELECT ROUND(1234.5678) AS ROUND,
 ROUND(1234.5678,0) AS ROUND_0,
 ROUND(1234.5678,1) AS ROUND_1,
@@ -175,7 +181,7 @@ ROUND(1234.5678,-1) AS ROUND_MINUS1,
 ROUND(1234.5678,-2) AS ROUND_MINUS2
 FROM DUAL;
 
---
+--TRUNC는 소수점을 반올림하지 않고 표현을 한다.
 SELECT TRUNC(1234.5678) AS TRUNC,
 TRUNC(1234.5678, 0) AS TRUNC_0,
 TRUNC(1234.5678, 1) AS TRUNC_1,
@@ -184,46 +190,56 @@ TRUNC(1234.5678, -1) AS TRUNC_MINUS1,
 TRUNC(1234.5678, -2) AS TRUNC_MINUS2
 FROM DUAL;
 
---
+--CEIL은 ()안에 지정된 숫자와 가장 가까운 큰 정수를 표현할때
+--FLOOR은 ()안의 지정 된 숫자와 가장가까운 작은정수를 표현할때
+-- 위의 숫자 모드 소수점일때 반올림이나 이런건 신경안써도 된다
+-- 음수의 표현일때도 소수점 신경 안쓰고 3.14 중간에서 가장 가까운 작은수 가장가까운 큰수
+--를 표현해 주면 된다
 SELECT CEIL(3.14) AS PI,
-FLOOR(3.14) AS PI1,
+FLOOR(3.84) AS PI1,
 CEIL(-3.14) AS PI3,
 FLOOR(-3.14) AS PI4
 FROM DUAL;
 
---
+--다른 언어에서 %가 나머지를 구하는 단어이지만 SQL에서는 MOD가 나머지를 구하는 단어이다
+-- 계산할때는 (기준값, 나눈값) 으로 계산이된다
 SELECT MOD(15,6) AS MOOD,
 MOD(10,2) AS MOOOOD,
 MOD(11,2) AS MOOOOOOOD
 FROM DUAL;
 
---
+--SYSDATE 는 날짜데이터를 사용할때 쓰지만 -1 +1 처럼 계산해서 사용가능하다
 SELECT SYSDATE AS NOW,
 SYSDATE-1 AS YESTERDAY,
 SYSDATE+1 AS TOMORROW
 FROM DUAL;
 
---
+--ADD_MONTHS 같은경우는 (날짜데이터, 이후의 달) 이런식으로 지정해서 사용한다 
 SELECT SYSDATE,
 ADD_MONTHS(SYSDATE, 3)
 FROM DUAL;
-
+-- 아래와같이 현재 날짜데이터가 아닌 테이블에 있는 날짜데이터를 지정해서 사용도 가능하다
+-- 기본 1은 1개월이다 120은 10년으로 계산 가능하다.
 SELECT EMPNO, ENAME, HIREDATE,
-ADD_MONTHS(HIREDATE, 120) AS WORK10YEAR
+ADD_MONTHS(HIREDATE, 384) AS WORK10YEAR
 FROM EMP;
 
+-- 아래와 같이 조건문으로 사용도 가능하다
+--아래 문제는 기존 날짜 데이터에 32년을 더한것이 현재 시간대보다 크면 표시를 하는 문제이다
 SELECT EMPNO, ENAME, HIREDATE, SYSDATE
 FROM EMP
 WHERE ADD_MONTHS(HIREDATE, 384) > SYSDATE;
 
---
+--MONTHS_BETWEEN 은 두 날짜간의 개월수 차이를 나타내는 형식이다 마지막 부분에 TRUNC같은경우는
+--소수점을 제거한 보기편한거라고 보면된다.
 SELECT EMPNO, ENAME, HIREDATE, SYSDATE,
 MONTHS_BETWEEN(HIREDATE, SYSDATE) AS MONTHS1,
 MONTHS_BETWEEN(SYSDATE, HIREDATE) AS MONTHS2,
 TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) AS MONTHS3
 FROM EMP;
 
---
+--NEXT_DAY 같은경우 (현재날짜 데이터, 지정한 요일) 로 사용가능한대7일을 넘기는 것은 안된다
+--딱 다음주의 날짜까지만 계산 () 안의 지정한요일에 숫자를 써도 무관하다 7까지만
 SELECT SYSDATE,
 NEXT_DAY(SYSDATE, '월요일') AS NEXT_WEEK,
 LAST_DAY(SYSDATE) AS LAST_DAY
@@ -362,7 +378,8 @@ FROM EMP
 GROUP BY DEPTNO, JOB
 ORDER BY DEPTNO, JOB;
 
--- 여기부터 HAVING 라는 조건식이들어간다 
+-- 여기부터 HAVING 라는 조건식이들어간다 WHERE랑 다를거없다 하지만 그룹바이에서는
+-- HAVING를 써야한다.
 SELECT DEPTNO, JOB, AVG(SAL)
 FROM EMP
 GROUP BY DEPTNO, JOB
@@ -431,3 +448,26 @@ SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM, DEPTNO, D.DNAM
 FROM EMP E JOIN DEPT D USING(DEPTNO)
 WHERE SAL >= 3000
 ORDER BY E.EMPNO;
+
+--
+SELECT SAL
+FROM EMP
+WHERE ENAME = 'JONES';
+
+SELECT *
+FROM EMP
+WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME='JONES');
+
+--
+SELECT *
+FROM EMP
+WHERE HIREDATE < (SELECT HIREDATE FROM EMP WHERE ENAME ='SCOTT');
+
+--
+SELECT E.EMPNO, E.ENAME, E.JOB, E.SAL, D.DEPTNO, D.DNAME, D.LOC
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO
+AND E.DEPTNO = 20
+AND E.SAL > (SELECT AVG(SAL) FROM EMP);
+
+--
