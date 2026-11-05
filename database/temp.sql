@@ -51,18 +51,20 @@ SELECT * FROM emp WHERE SAL NOT BETWEEN 2000 AND 3000;
 -- LIKE 같은 경우는 아래와 같이 쓰인다 
 -- S%는 이름에 S가 들어있을경우 길이와 상관없이 모든 문자데이터를 의미
 SELECT * FROM emp WHERE ENAME LIKE 'S%';
--- _L%는 어떤 값이든 상관없이 한개의 문자 데이터
+-- _L%는 어떤 값이든 상관없이 한개의 문자 데이터가 있다면
 SELECT * FROM emp WHERE ENAME LIKE '_L%';
 -- %AM% AM을 포함한 데이터
 SELECT * FROM emp WHERE ENAME LIKE '%AM%';
+-- NOT LIKE는 AM을 포함하지 않는
 SELECT * FROM emp WHERE ENAME NOT LIKE '%AM%';
 
 -- NULL 같은경우는 데이터가 존재하지 않는다는 뜻이다
 -- IS NULL 은 데이터가 NULL일때 참
 -- IS NOT NULL 은 데이터가 NULL이 아닐때 참
 SELECT * FROM emp WHERE COMM = NULL;
+
 SELECT * FROM emp WHERE COMM IS NULL;
-SELECT * FROM emp WHERE MGR IS NULL;
+SELECT * FROM emp WHERE MGR IS NOT NULL;
 SELECT * FROM emp WHERE SAL > NULL AND COMM IS NULL;
 SELECT * FROM emp WHERE SAL > NULL OR COMM IS NULL;
 
