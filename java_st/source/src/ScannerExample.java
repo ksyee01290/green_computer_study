@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ScannerExample {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in,"MS949");
 
         System.out.println("x 값 입력: ");
         String strX = sc.nextLine();
