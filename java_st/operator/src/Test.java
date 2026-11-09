@@ -15,6 +15,7 @@ public class Test {
         } else{
             System.out.println("파이리 아니야");
         }
+        String border = (pocket.contains("paili")) ? "파이리" : "메타몽";
         
         for(int i=0;i<pocket.size();i++){
             System.out.println("포켓몬을 입력해: ");
