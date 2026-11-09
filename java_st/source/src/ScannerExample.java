@@ -7,13 +7,13 @@ public class ScannerExample {
         System.out.println("x 값 입력: ");
         String strX = sc.nextLine();
         int x = Integer.parseInt(strX);
-        
+
         System.out.println("y 값 입력: ");
         String strY = sc.nextLine();
         int y = Integer.parseInt(strY);
 
         int result = x+y;
-        System.out.println("x+y: " +result);
+        System.out.println("x+y:"+result);
         System.out.println();
 
         while(true) {
