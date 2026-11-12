@@ -26,6 +26,8 @@ public class TestExample {
                 obj2.printInfo();
             }else if(num.equals("4")){
                 break;
+            }else if(num.equals("5")){
+                obj1.work();
             }
 
         }
