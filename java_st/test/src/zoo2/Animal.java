@@ -1,0 +1,7 @@
+package zoo2;
+
+public class Animal {
+    public void sound(){
+        System.out.println("동물소리");
+    }
+}
