@@ -1,0 +1,11 @@
+(objects.compare(T a, T b, 여기는 메서드명을 넣어작성<T> c))
+a,b 두객체를 비교자 c로 비교를해 int값으로 리턴한다. 왜 int인지는 잘모른다.
+
+Comparator<T> 인터페이스
+제너릭 인터페이스 타입
+T타입의 객체를 비교하는 compare(T a, T b)메소드를 가진다.
+비교 예제 로는
+
+public interface Comparator<T>{
+    int compare(T a, T b);
+}

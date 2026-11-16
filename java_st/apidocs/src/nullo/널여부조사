@@ -1,0 +1,10 @@
+널여부조사에 대해서 여러가지가 있다 
+isNull(), nonNull(), requireNonNull() 이 있는대 
+여기서 대부분 isNull()을 사용하고 가끔가다 nonNull()을 사용하는데
+난 우선 isNull에대해서 서술하겠다.
+
+Objects.isNull 이런식으로 사용할수있다. 
+isNull 메소드는 null이면 true 그렇지않으면 false를 반환한다.
+
+Objects.nonNull 
+nonNull 메소드는 해당객체가 null이 아니면 true를 반환하고 그렇지않으면 false를 반환한다.

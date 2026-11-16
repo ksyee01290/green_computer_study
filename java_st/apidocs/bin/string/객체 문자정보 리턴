@@ -1,0 +1,12 @@
+첫번째 매개값이 not null - toString()으로 얻은값을 리턴
+
+이게 무슨소리인가하면 null이면 null 또는 두번째 매개값인 nullDefault 를 리턴한다.
+즉 toStringExample2의 예제를 보면 자세히 알수있다. null 변수와 문자열 변수가 
+각각 존재한다 여기서 Objects.toString(매개값1,매개값2) 
+이와 같이 매개값1 이 null 이면 뒤쪽 매개값2가 출력되는 구조이다.
+이건 기본적인 toString의 기능이라 할수있다.
+
+toString 중요하다 꼭기억하자 실무에서도 자주쓰이는 부분이다.
+
+그리고 바이트 배열을 문자열로 변환할수가 있다 이게 다 위대한 toString의 힘이다
+

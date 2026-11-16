@@ -3,6 +3,7 @@ package casting;
 public class ChildExample {
     public static void main(String[] args) {
         // 자식 child를 부모클래스인 parent로 객체 생성하는부분
+        // 아래와 같은걸 참조변수라 부른다.
         Parent parent = new Child();
 
         parent.field1 = "data1";
