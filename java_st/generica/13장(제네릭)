@@ -1,0 +1,36 @@
+제네릭이란 직역하면 일반적인 이라는뜻
+데이터 형식에 의존하지 않고 하나의 값이 여러 다른 데이터 타입들을 가질수 있도록 하는방법
+
+제네릭은 클래스 내부에서 지정하는것이 아닌 외부에서 사용자에 의해 지정되는것을 의미
+특정 타입을 미리 지정해주는것이 아닌 필요에의해 지정할수 있도록하는 타입
+
+제네릭 사용법
+꼭 한글자일 필요는 없다 자신이 원하는 단어도 상관없다
+하지만 대중적으로 쓰이는 암묵적인 규칙이 아래와 같다.
+<T> = Type
+<E> = Element
+<K> = Key
+<V> = Value
+<N> = Number
+
+1.클래스 및 인터페이스 선언
+
+기본적으로 제네릭 타입의 클래스나 인터페이스는 아래와 같이 선언한다.
+public class ClassName <T> {...}
+public interface InterfaceName <T> {...}
+T 타입은 해당블럭 {...} 안에서 까지 유효
+
+아래와같이 제네릭 타입을 두개로 둘수도있다.
+public class ClassName <T, K> {...}
+public interface InterfaceName <T, K> {...}
+
+해쉬맵의 경우 아래와 같이 선언되어있을듯
+public class HashMap <K, V> {...}
+
+2.제네릭 클래스 = Test2.java 참고
+
+3.제네릭 메소드 = Test3.java 참고
+일반적인 선언방법은 아래와같다
+public <T> T genericMethod(T o){
+
+}

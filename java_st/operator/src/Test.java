@@ -3,7 +3,7 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in,"MS949");
-        ArrayList<String> pocket = new ArrayList<>();
+        ArrayList<Integer> pocket = new ArrayList<>();
         pocket.add("pica");
         pocket.add("metamong");
         pocket.add("paili");
