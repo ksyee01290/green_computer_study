@@ -1,6 +1,6 @@
 package study;
 
-class ClassName<E>{
+class ClassName1<E>{
     private E element;
 
     void set(E element){
@@ -19,8 +19,8 @@ class ClassName<E>{
 public class Test3 {
     public static void main(String[] args) {
         
-        ClassName<String> a = new ClassName<String>();
-        ClassName<Integer> b = new ClassName<Integer>();
+        ClassName1<String> a = new ClassName1<String>();
+        ClassName1<Integer> b = new ClassName1<Integer>();
 
         a.set("10");
         b.set(10);
@@ -36,9 +36,10 @@ public class Test3 {
         System.out.println();
 
         //제네릭 메소드 Integer
-        System.out.println("<T> returnType : "+a.genericMethod(3).getClass().getName());
-
+        System.out.println("<T> returnType : "+b.genericMethod(3).getClass().getName());
+        //제네릭 메소드 String
         System.out.println("<T> returnType : "+a.genericMethod("abcd").getClass().getName());
-
+        //제네릭 return class b
+        System.out.println("<T> returnType : "+a.genericMethod(b).getClass().getName());
     }
 }

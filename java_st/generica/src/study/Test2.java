@@ -1,6 +1,6 @@
 package study;
 
-class ClassName<E>{
+class ClassName2<E>{
     private E element;
 
     void set(E element){
@@ -14,8 +14,8 @@ class ClassName<E>{
 
 public class Test2 {
     public static void main(String[] args) {
-        ClassName<String> a = new ClassName<String>();
-        ClassName<Integer> b = new ClassName<Integer>();
+        ClassName2<String> a = new ClassName2<String>();
+        ClassName2<Integer> b = new ClassName2<Integer>();
 
         a.set("10");
         b.set(10);
