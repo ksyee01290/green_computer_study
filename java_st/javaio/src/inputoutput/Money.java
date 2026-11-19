@@ -2,7 +2,7 @@ package inputoutput;
 
 public class Money {
     private int balance = 0;
-    private int bank=10000000;
+    //private int bank=10000000;
 
     private static Money singleton = new Money();
     private Money(){}
