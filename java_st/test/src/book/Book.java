@@ -4,7 +4,15 @@ public class Book {
     private int id;
     private String title;
     private String author;
+
+    public Book(){}
     
+    public Book(int id, String title, String author) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+    }
+
     //getter
     public int getId(){
         return id;
@@ -29,5 +37,9 @@ public class Book {
 
     public void setAuthor(String author){
         this.author = author;
+    }
+
+    public String toFileString(){
+        return id+","+title+","+author;
     }
 }

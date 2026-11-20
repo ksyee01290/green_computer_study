@@ -26,7 +26,7 @@ public class FileExample {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd    a    HH:mm");
         File[] contents = temp.listFiles();
         System.out.println("날짜                  시간        형태       크기      이름");
-        System.out.println("---------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------");
 
         for(File file : contents){
             //file.lastModified() 마지막으로 수정된 시각을 밀리초(long)단위로 반환
@@ -35,7 +35,7 @@ public class FileExample {
             if(file.isDirectory()){
                 System.out.println("\t<DIR>\t\t\t" + file.getName());
             } else {
-                System.out.println("\t\t\t" + file.length() + "\t" + file.getName());
+                System.out.println("\t\t\t" + file.length() + "\t\t" + file.getName());
             }
             System.out.println();
         }

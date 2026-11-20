@@ -1,16 +1,17 @@
 package book;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class Bookservice implements Manageable{
+public class BookManager implements Manageable{
     Scanner sc = new Scanner(System.in,"MS949");
     String filename = "C:/study/java_st/test/src/book/book.txt";
     
 
-    Book[] books = new Book[3];
+    Book[] books = new Book[10];
     int count = 0;
 
     @Override
@@ -36,26 +37,25 @@ public class Bookservice implements Manageable{
         }else{
             System.out.println("============  등록된 도서목록  ============");
             System.out.println();
+            System.out.println("도서번호        도서제목                    저자명");
+            System.out.println("---------------------------------------------------");
             for(int i=0;i<count;i++){
-                System.out.println("============================");
-                System.out.println("도서 번호: "+books[i].getId());
-                System.out.println("도서 제목: "+books[i].getTitle());
-                System.out.println("저자명: "+books[i].getAuthor());
+                System.out.print(books[i].getId()+"\t");
+                System.out.print("\t"+books[i].getTitle()+"\t");
+                System.out.print("\s\s\s\s"+books[i].getAuthor()+"\t");
+                System.out.println();
             }
         }
-
     }
 
     @Override
     public void saveToFile() {
         try {
             File file = new File(filename);
-            FileWriter fw = new FileWriter(file, true);
+            FileWriter fw = new FileWriter(file,true);
 
             for(int i=0;i<count;i++){
-                fw.write(books[i].getId()+",");
-                fw.write(books[i].getTitle()+",");
-                fw.write(books[i].getAuthor()+"\n");
+                fw.write(books[i].toFileString()+"\n");
             }
             fw.flush();
             fw.close();
@@ -68,30 +68,35 @@ public class Bookservice implements Manageable{
 
     @Override
     public void loadFromFile() {
-        Book book = new Book();
         try {
-            FileReader fr = new FileReader(filename);
-
-            String line = "";
-            int readCharNo;
-            char[] cbuf = new char[100];
-            while((readCharNo = fr.read(cbuf))!= -1){
-                String data = new String(cbuf, 0, readCharNo);
-                System.out.println(data);
-                line = data;
-            }
-            String[] red = line.split(",|\n");
-
-            for(String name : red){
-                System.out.println(name);
-            }
-            for(int i=0;i<books.length;i++){
+            FileReader file = new FileReader(filename);
+            BufferedReader br = new BufferedReader(file);
+            String line;
+            while((line = br.readLine())!= null){
+                if(count >= books.length){
+                    System.out.println("도서 저장공간이 가득찼습니다.");
+                    break;
+                }
                 
+                String[] data = line.split(",",-1);
+                if(data.length != 3){
+                    continue;
+                }
+                Book book = new Book(
+                    Integer.parseInt(data[0]),
+                    data[1],
+                    data[2]
+                );
+
+                books[count] = book;
+                count++;
             }
-            fr.close();
+            System.out.println("파일불러오기 완료");
+            br.close();
+            file.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("불러오기 실패");
         }
     }
 
