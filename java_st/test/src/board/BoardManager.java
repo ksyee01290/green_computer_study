@@ -14,8 +14,7 @@ public class BoardManager implements Manageable {
     int count = 0;
     int sct;
 
-    @Override
-    public void addItem(Board board) {
+    public BoardManager(){
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             conn = DriverManager.getConnection(
@@ -24,31 +23,6 @@ public class BoardManager implements Manageable {
                     "1234");
             System.out.println("연결 성공");
 
-            if(count<boards.length){
-                boards[count] = board;
-                count ++;
-
-                String sql = ""+ "INSERT INTO board(bid, btitle, bcontents, bauthor)"
-                + "VALUES(SEQ_board.NEXTVAL, ?, ?, ?)";
-
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                for(int i=0;i<count;i++){
-                    pstmt.setString(1,boards[i].getBtitle());
-                    pstmt.setString(2,boards[i].getBcontents());
-                    pstmt.setString(3,boards[i].getBauthor());
-                }
-                
-                int rows = pstmt.executeUpdate();
-                System.out.println("저장된 행 수: " + rows);
-                
-                pstmt.close();
-                System.out.println("결과: 성공적으로 등록되었습니다.");
-                System.out.println("============================");
-            } else{
-                System.out.println("============================");
-                System.out.println("계시판이 꽉참");
-                return;
-            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -57,17 +31,41 @@ public class BoardManager implements Manageable {
     }
 
     @Override
+    public void addItem(Board board) {
+        try {
+            if(count<boards.length){
+                String sql = ""+ "INSERT INTO board(bid, btitle, bcontents, bauthor)"
+                + "VALUES(SEQ_board.NEXTVAL, ?, ?, ?)";
+
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                
+                pstmt.setString(1,board.getBtitle());
+                pstmt.setString(2,board.getBcontents());
+                pstmt.setString(3,board.getBauthor());
+                
+                int rows = pstmt.executeUpdate();
+                System.out.println("저장된 행 수: " + rows);
+                
+                pstmt.close();
+
+                boards[count] = board;
+                count ++;
+                System.out.println("결과: 성공적으로 등록되었습니다.");
+                System.out.println("============================");
+            } else{
+                System.out.println("============================");
+                System.out.println("계시판이 꽉참");
+                return;
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void display() {
         load();
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-            System.out.println("연결 성공");
-
             String sql = ""+
             "SELECT bid,btitle,bcontents,bauthor "+
             "FROM board "+
@@ -133,9 +131,7 @@ public class BoardManager implements Manageable {
                 }
             }
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -143,14 +139,6 @@ public class BoardManager implements Manageable {
     @Override
     public void updataDB() {
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-            System.out.println("연결 성공");
-
             String sql = new StringBuilder()
                 .append("UPDATE board SET ")
                 .append("btitle=?, ")
@@ -180,9 +168,7 @@ public class BoardManager implements Manageable {
             pstmt.close();
             System.out.println("성공적으로 업데이트 되었습니다.");
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -190,13 +176,6 @@ public class BoardManager implements Manageable {
     @Override
     public void deletDB() {
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-            System.out.println("연결 성공");
 
             String sql = "DELETE FROM board "+
             "WHERE bid = ? ";
@@ -204,12 +183,13 @@ public class BoardManager implements Manageable {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1,sct);
 
+            int rows = pstmt.executeUpdate();
+            System.out.println("삭제된 행 수: "+rows);
+
             System.out.println("정상적으로 삭제 되었습니다.");
 
             pstmt.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -217,14 +197,6 @@ public class BoardManager implements Manageable {
     @Override
     public void deletAllDB() {
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-            System.out.println("연결 성공");
-
             String sql = "DELETE FROM board ";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -233,9 +205,7 @@ public class BoardManager implements Manageable {
             System.out.println("삭제된 행 수: "+rows);
 
             pstmt.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -258,14 +228,6 @@ public class BoardManager implements Manageable {
     @Override
     public void loadFromDB() {
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-            System.out.println("연결 성공");
-
             String sql = ""+
             "SELECT bid,btitle,bcontents,bauthor "+
             "FROM board ";
@@ -292,9 +254,7 @@ public class BoardManager implements Manageable {
             pstmt.close();
             System.out.println("파일불러오기 완료");
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -302,13 +262,6 @@ public class BoardManager implements Manageable {
     public void load(){
         count = 0;
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@//localhost:1521/XE",
-                    "system",
-                    "1234");
-
             String sql = ""+
             "SELECT bid,btitle,bcontents,bauthor "+
             "FROM board ";
@@ -335,9 +288,7 @@ public class BoardManager implements Manageable {
             pstmt.close();
             System.out.println("파일불러오기 완료");
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }

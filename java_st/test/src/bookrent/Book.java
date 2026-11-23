@@ -21,13 +21,13 @@ public class Book {
     public int getBookis(){
         return bookis;
     }
-    public String booktitle(){
+    public String getBooktitle(){
         return booktitle;
     }
-    public String bookauthor(){
+    public String getBookauthor(){
         return bookauthor;
     }
-    public String bookpublishing(){
+    public String getBookpublishing(){
         return bookpublishing;
     }
 
@@ -45,6 +45,6 @@ public class Book {
         this.bookauthor=bookauthor;
     }
     public void setBookpublishing(String bookpublishing){
-        this.bookpublishing=bookpublishing();
+        this.bookpublishing=bookpublishing;
     }
 }
