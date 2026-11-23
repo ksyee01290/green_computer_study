@@ -1,16 +1,12 @@
 package book;
 
-import java.io.File;
 import java.util.Scanner;
 
 public class LibraryMain {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in,"MS949");
-
         Manageable service = new BookManager();
-        
-        filecreate();
-        service.loadFromFile();
+        service.loadFromDB();
 
         while(true){
             BookManager.printInfo();
@@ -46,7 +42,7 @@ public class LibraryMain {
                 System.out.println();
                 
             } else if(num.equals("3")){
-                service.saveToFile();
+                service.saveToDB();
                 System.out.println("프로그램을 종료합니다.");
                 break;
                 
@@ -55,22 +51,5 @@ public class LibraryMain {
                 break;
             }
         }
-    }
-
-    //파일 생성하는부분 초기화
-    public static void filecreate() throws Exception{
-        String filename = "C:/study/java_st/test/src/book/book.txt";
-        try {
-            File book = new File(filename);
-            if(book.exists() == false){
-                book.createNewFile();
-                System.out.println("성공적인 파일 생성");
-            } else {
-                System.out.println("파일이 이미 있습니다.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 }

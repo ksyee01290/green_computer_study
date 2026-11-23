@@ -1,0 +1,27 @@
+CREATE TABLE member(
+user_id VARCHAR2(30) PRIMARY KEY,
+user_ps VARCHAR2(30),
+user_name VARCHAR2(50),
+user_tel VARCHAR2(20),
+user_day DATE,
+user_stop BOOLEAN 
+);
+
+CREATE TABLE book(
+book_id VARCHAR2(30) PRIMARY KEY,
+book_is INT,
+book_title VARCHAR2(30),
+book_author VARCHAR2(50),
+book_publishing VARCHAR2(30),
+book_ok BOOLEAN
+);
+
+CREATE TABLE rental(
+rent_id VARCHAR2(30) PRIMARY KEY,
+rent_user_id VARCHAR2(30),
+rent_book_id VARCHAR2(30),
+rent_day DATE,
+rent_return DATE,
+rent_real_return DATE,
+rent_over BOOLEAN
+);

@@ -151,7 +151,7 @@ public class BoardExample {
             "WHERE btitle=?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,"눈사람");
+            pstmt.setString(1,"winter2");
 
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
@@ -160,7 +160,7 @@ public class BoardExample {
                 board.setBcontent(rs.getString("bcontent"));
                 board.setBfilename(rs.getString("bfilename"));
                 board.setBfiledata(rs.getBlob("bfiledata"));
-                board.setBno(rs.getInt(2));
+                board.setBno(rs.getInt("bno"));
                 System.out.println(board);
             } else {
                 System.out.println("사용자 아이디가 존재하지 않음");
