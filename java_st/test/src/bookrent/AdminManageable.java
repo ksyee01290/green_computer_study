@@ -1,11 +1,12 @@
 package bookrent;
 
 public interface AdminManageable {
-    void bookcreate();
-    void bookdelete();
-    void bookselect();
-    void bookupdate();
+    void bookcreate(Book book);
+    void bookdelete(Book book);
+    void bookselect(Book book);
+    void bookupdate(Book book);
     void peoplemanagement();
     void rentreturn();
-    void booktotal();
+    void dbclose();
+    void booktotal(Book book);
 }

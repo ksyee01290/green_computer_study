@@ -12,6 +12,7 @@ except ValueError:
     print("정수를 입력하세요")
 
 print("===========")
+
 #예제2
 raw_scores = ["80","abc","60","-1","101"]
 scores, errors = [],[]
@@ -72,3 +73,6 @@ print(mes)
 #     print(huum)
 # except ValueError:
 #     print("빈입력에도 실패안함")
+
+#컴프리헨션 [표현식 for 변수 in 이터러블 if 조건식]
+#딕셔너리 사용할때 : 를 이용해서 키와 값을 분리한다.

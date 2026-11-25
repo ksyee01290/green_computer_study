@@ -11,7 +11,7 @@ items = [("pen",1500), ("book",120000)]
 
 st = sorted(items, key=lambda item: item[1], reverse=True)
 print(st)
-print(items.sorted(items, key=lambda item: item[1], reverse=False))
+#print(items.sorted(items, key=lambda item: item[1], reverse=False))
 
 #테스트
 def basket_total(*prices):

@@ -1,18 +1,28 @@
 package bookrent;
-//정의
-public class User {
+
+public class Member {
     private String userid;
     private String userps;
     private String username;
     private String usertel;
+    private String userdate;
+    private boolean userbol;
 
-    public User(){}
+    public Member(){}
 
-    public User(String userid,String userps,String username,String usertel){
+    public Member(String userid,String username,String usertel){
+        this.userid=userid;
+        this.username=username;
+        this.usertel=usertel;
+    }
+
+    public Member(String userid,String userps,String username,String usertel,String userdate,boolean userbol){
         this.userid = userid;
         this.userps = userps;
         this.username = username;
         this.usertel = usertel;
+        this.userdate = userdate;
+        this.userbol = userbol;
     }
 
     //getter
@@ -28,6 +38,12 @@ public class User {
     public String getUsertel(){
         return usertel;
     }
+    public String getUserdate(){
+        return userdate;
+    }
+    public boolean getUserbol(){
+        return userbol;
+    }
 
     //setter
     public void setUserid(String userid){
@@ -41,5 +57,11 @@ public class User {
     }
     public void setUsertel(String usertel){
         this.usertel=usertel;
+    }
+    public void setUserdate(String userdate){
+        this.userdate=userdate;
+    }
+    public void setUserbol(boolean userbol){
+        this.userbol=userbol;
     }
 }

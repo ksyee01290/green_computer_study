@@ -1,13 +1,15 @@
 package bookrent;
 
 public class Book {
-    private String bookid;
-    private int bookis;
+    private int bookid;
+    private String bookis;
     private String booktitle;
     private String bookauthor;
     private String bookpublishing;
 
-    public Book(String bookid,int bookis, String booktitle, String bookauthor, String bookpublishing){
+    public Book(){}
+
+    public Book(int bookid,String bookis, String booktitle, String bookauthor, String bookpublishing){
         this.bookid=bookid;
         this.bookis=bookis;
         this.booktitle=booktitle;
@@ -15,10 +17,10 @@ public class Book {
         this.bookpublishing=bookpublishing;
     }
 
-    public String getBookid(){
+    public int getBookid(){
         return bookid;
     }
-    public int getBookis(){
+    public String getBookis(){
         return bookis;
     }
     public String getBooktitle(){
@@ -32,10 +34,10 @@ public class Book {
     }
 
     //setter
-    public void setBookid(String bookid){
+    public void setBookid(int bookid){
         this.bookid=bookid;
     }
-    public void setBookis(int bookis){
+    public void setBookis(String bookis){
         this.bookis=bookis;
     }
     public void setBooktitle(String booktitle){

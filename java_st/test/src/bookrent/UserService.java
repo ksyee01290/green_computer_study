@@ -1,11 +1,10 @@
 package bookrent;
 
-public class UserService implements UserManageable {
-    User[] user = new User[10];
+public class UserService implements UserManageable{
+    Book[] book = new Book[100];
 
     @Override
     public void bookrent() {
-        
     }
 
     @Override
@@ -19,5 +18,6 @@ public class UserService implements UserManageable {
     @Override
     public void edituser() {
     }
+    
     
 }

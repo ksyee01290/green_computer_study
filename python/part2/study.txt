@@ -1,0 +1,6 @@
+설치
+pip install streamlit
+확인
+streamlit --version
+실행
+python -m streamlit run 파일명 
