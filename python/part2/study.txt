@@ -1,6 +1,53 @@
 설치
 pip install streamlit
+통계쪽에서 사용하는 pandas 자주사용해서 가상환경 구성할때 깔아주면 좋다.
+pip install pandas
 확인
 streamlit --version
 실행
 python -m streamlit run 파일명 
+streamlit run 파일명
+
+기본 포트 8501
+컨트롤 c 종료
+
+[] = 리스트 {} = 딕셔너리
+
+
+1.
+set_page_config(page_title= 문자열, layout= 문자열) = 첫셋팅
+title = 제목을 담당
+write = 화면출력을 담당해준다
+
+2.
+title,header,markdown 으로 구분
+title = 제목
+header = 소제목
+markdown = 내용
+columns() = 화면구역을 나누는 역할 괄호안에 숫자로 여러개로 나누기가능
+with = 화면구역의 변수를 지정해서 구역별로 작성가능
+
+sidebar = 왼쪽에 숨길수있는 또다른구역
+sidebar.write = 이런식으로 글을 쓰거나 제목을 추가하여 사용가능
+
+3.
+text_input = 문자를 입력받는함수 
+number_input = 숫자를 입력받는함수 숫자 최대값을 꼭 안써도 된다.
+button = 클릭으로 true를 반환해준다
+.slider = 디자인을 슬라이드 처럼 바꿔준다.
+
+4.
+pd.DataFrame() = pandas 에서 제공해주는 표형태를 표현해주는 함수
+dataframe = 웹 화면에서 표형태를 보여주기위해서 사용한다
+
+bar_chart(.set_index(출력할 행 이름[위쪽에서 계산한 변수이름])) =
+웹 화면에서 챠트 형태를 보여주기위해사용
+
+.sum() 기본적인 함수도 자유롭게 사용가능
+:.1f 실수 로 표현해줄수있다.
+:, 1000단위로 나누어준다.
+.max() = 가장 높은놈을 출력
+.mean() = 평균을 계산해준다
+{키: 리스트} = 딕셔너리에 값부분에 리스트를 넣을수도 있다.
+{키: 딕셔너리} = 딕셔너리 안의 딕셔너리 도 가능하다.
+5.

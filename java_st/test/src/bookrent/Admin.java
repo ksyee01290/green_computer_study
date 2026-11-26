@@ -3,6 +3,7 @@ package bookrent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -87,7 +88,47 @@ public class Admin implements AdminManageable{
 
     @Override
     public void bookselect(Book book) {
-        
+        try {
+            String sql = ""+
+            "SELECT bid,bis,btitle,bauthor,bpublishing "+
+            "FROM book "+
+            "WHERE bid=?";
+
+            System.out.println();
+            System.out.println("검색할 id");
+            sct = Integer.parseInt(sc.nextLine());
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,sct);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            System.out.println("데이터 베이스 출력부");
+            if(rs.next()){
+                Books bookss = new Books();
+                bookss.setBid(rs.getInt("bid"));
+                bookss.setBis(rs.getString("btitle"));
+                bookss.setBtitle(rs.getString("btitle"));
+                bookss.setBauthor(rs.getString("bauthor"));
+                bookss.setBpublishing(rs.getString("bpublishing"));
+                System.out.println(bookss.toString());
+            } else {
+                System.out.println("사용자 id 존재하지 않음");
+            }
+            System.out.println();
+            rs.close();
+            pstmt.close();
+
+            if(count == 0){
+                System.out.println("등록된 도서가 없음");
+            } else {
+                for(int i=0;i<count;i++){
+                    System.out.println(books[i].toString());
+                }
+            }
+
+        } catch (Exception e) {
+        }
     }
 
     @Override

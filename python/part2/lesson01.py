@@ -15,3 +15,9 @@ quantity = 3
 st.write("단가: ", price)
 st.write("수량: ", quantity)
 st.write("합계: ", price * quantity)
+
+# 테스트
+st.set_page_config(page_title="첫 앱", layout="centered")
+st.title("파이썬 마스터")
+st.write("파이썬 딕셔너리 많이쓰기")
+st.write("파이썬 최적화 잘하기")
