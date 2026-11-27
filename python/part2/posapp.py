@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from common import parse_sales, summarize
+from com import parse_sales, summarize
 from pathlib import Path
 
 st.set_page_config(page_title="미니 POS & 매출 대시보드", layout="wide")
@@ -15,14 +15,17 @@ def get_cached_summary(rows):
     return summarize(rows)
 
 # ===========================================사이드바====================================================================
+st.sidebar.subheader("⚙️ 데이터 관리")
+uploaded = st.sidebar.file_uploader("추가 매출 CSV 업로드 (UTF-8)", type=["csv"])
+sample_path = Path(__file__).resolve().parents[1] / "data" / "article.csv"
+raw = uploaded.getvalue() if uploaded is not None else sample_path.read_bytes()
 
-st.sidebar.header("⚙️ 데이터 관리")
 if "pos_order" not in st.session_state:
     st.session_state.pos_order = []
 
-uploaded = st.sidebar.file_uploader("추가 매출 CSV 업로드 (UTF-8)", type=["csv"])
-sample_path = Path(__file__).resolve().parents[1] / "data" / "sales.csv"
-raw = uploaded.getvalue() if uploaded is not None else sample_path.read_bytes()
+base_rows = parse_sales(raw)
+posorder = st.session_state.pos_order
+all_rows = base_rows + posorder
 
 if uploaded is not None:
     nomal = [
@@ -34,19 +37,11 @@ if uploaded is not None:
 
 else:
     try:
-        base_rows = parse_sales(raw)
-        posorder = st.session_state.pos_order
-        all_rows = base_rows + posorder
-        
         st.sidebar.dataframe(all_rows)
-        st.sidebar.success(f"CSV에서 {len(base_rows)}행을 불러왔습니다.")
+        st.sidebar.success(f"CSV에서 {len(all_rows)}행을 불러왔습니다.")
     except ValueError as exc:
         st.error(str(exc))
         st.stop()
-
-print(type(base_rows))
-print(type(posorder))
-#+ st.session_state.pos_orders
 
 #3.3 캐시초기화
 if st.sidebar.button("함수 캐시 지우기"):
@@ -56,12 +51,50 @@ if st.sidebar.button("POS 입력 내역 초기화"):
     st.session_state.pos_order = []
     st.sidebar.warning("현장 주문 내역이 초기화되었습니다.")
 
+#=================================================================================================================
+# st.sidebar.header("⚙️ 데이터 관리")
+# if "pos_order" not in st.session_state:
+#     st.session_state.pos_order = []
 
+# uploaded = st.sidebar.file_uploader("추가 매출 CSV 업로드 (UTF-8)", type=["csv"])
+# sample_path = Path(__file__).resolve().parents[1] / "data" / "sales.csv"
+# raw = uploaded.getvalue() if uploaded is not None else sample_path.read_bytes()
 
+# if uploaded is not None:
+#     nomal = [
+#             {"product": "book", "quantity": 2, "price": 12000}, 
+#             {"product": "pen", "quantity": 5, "price": 1500}
+#         ]
+#     st.info("표시할 데이터가 없음 기본값을 표현합니다.")
+#     st.sidebar.dataframe(nomal)
+
+# else:
+#     try:
+#         base_rows = parse_sales(raw)
+#         posorder = st.session_state.pos_order
+#         all_rows = base_rows + posorder
+        
+#         st.sidebar.dataframe(all_rows)
+#         st.sidebar.success(f"CSV에서 {len(base_rows)}행을 불러왔습니다.")
+#     except ValueError as exc:
+#         st.error(str(exc))
+#         st.stop()
+
+# print(type(base_rows))
+# print(type(posorder))
+# #+ st.session_state.pos_orders
+
+# #3.3 캐시초기화
+# if st.sidebar.button("함수 캐시 지우기"):
+#     get_cached_summary.clear()
+#     st.sidebar.success("캐시를 초기화했습니다.")
+# if st.sidebar.button("POS 입력 내역 초기화"):
+#     st.session_state.pos_order = []
+#     st.sidebar.warning("현장 주문 내역이 초기화되었습니다.")
 
 #============================================메인 페이지=========================================================================
 
-tab1,tab2,tab3 = st.tabs(["📊 매출 대시보드","💳 POS 주문 입력","💬 매출 도우미 챗봇"])
+tab1,tab2,tab3,tab4 = st.tabs(["📊 매출 대시보드","💳 POS 주문 입력","💬 매출 도우미 챗봇","🏬재고/물품 대여 관리"])
 
 with tab1:
     st.subheader("매출 대시보드")
@@ -111,7 +144,6 @@ with tab2:
         else:
             posorder.append({"product": clean_name, "quantity": int(p_qty), "price":int(p_price)})
             st.success(f"'{clean_name}' {p_qty}개 (총{p_qty * p_price:,}원) 주문이 등록되었습니다! 대시보드 탭에서 확인하세요.")
-
 
 with tab3:
     st.subheader("데이터 기반 간단 Q&A")
@@ -164,3 +196,48 @@ with tab3:
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.write(message["content"])
+
+with tab4:
+   
+    art1,art2 = st.tabs(["물품 관리","물품 대여"])
+    with art1:
+        ma1,ma2,ma3= st.tabs(["물품 추가","물품 삭제","물품 수정"])
+        with ma1:
+            st.subheader("물품추가/조회")
+            s_name = st.text_input("상품명 (1~40자)")
+                    
+            with st.form("add_form", clear_on_submit=True):
+                sc1, sc2, sc3= st.columns(3)
+                with sc1:
+                    s_id = sc1.number_input("id",min_value=1, max_value=1000, value=1)
+                with sc2:
+                    s_qty = sc2.number_input("수량", min_value=1, max_value=1000, value=1)
+                with sc3:
+                    s_price = sc3.number_input("단가", min_value=1000, max_value=10_000_000, value=5000, step=500)
+                submitted_add = st.form_submit_button("재고 추가")
+
+
+            if submitted_add:
+                sub_name = s_name.strip()
+                if not sub_name or len(sub_name) > 40:
+                    st.error("상품명은 공백 제외 1~40글자로 입력하세요.")
+                else:
+                    posorder.append({"id": int(s_id), "product": sub_name, "quantity": int(s_qty), "price":int(s_price)})
+                    st.success(f"{sub_name ,s_id} {s_qty}개 (총{s_qty * s_price:,}원) 주문이 등록되었습니다! 대시보드 탭에서 확인하세요.")
+
+        with ma2:
+            st.subheader("물품삭제")
+            with st.form("del_form", clear_on_submit=True):
+                submitted_del = st.form_submit_button("재고 삭제")
+
+        with ma3:
+            st.subheader("물품수정")
+            with st.form("ret_form", clear_on_submit=True):
+                submitted_cor = st.form_submit_button("재고 수정")
+
+    with art2:
+        ret1,ret2 = st.tabs(["금액안내","대여/반납"])
+        with ret1:
+            st.subheader("금액안내")
+        with ret2:
+            st.subheader("대여/반납")

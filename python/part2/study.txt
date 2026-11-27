@@ -51,3 +51,48 @@ bar_chart(.set_index(출력할 행 이름[위쪽에서 계산한 변수이름]))
 {키: 리스트} = 딕셔너리에 값부분에 리스트를 넣을수도 있다.
 {키: 딕셔너리} = 딕셔너리 안의 딕셔너리 도 가능하다.
 5.
+
+
+
+
+
+
+st.sidebar.header("⚙️ 데이터 관리")
+if "pos_order" not in st.session_state:
+    st.session_state.pos_order = []
+
+uploaded = st.sidebar.file_uploader("추가 매출 CSV 업로드 (UTF-8)", type=["csv"])
+sample_path = Path(__file__).resolve().parents[1] / "data" / "sales.csv"
+raw = uploaded.getvalue() if uploaded is not None else sample_path.read_bytes()
+
+if uploaded is not None:
+    nomal = [
+            {"product": "book", "quantity": 2, "price": 12000}, 
+            {"product": "pen", "quantity": 5, "price": 1500}
+        ]
+    st.info("표시할 데이터가 없음 기본값을 표현합니다.")
+    st.sidebar.dataframe(nomal)
+
+else:
+    try:
+        base_rows = parse_sales(raw)
+        posorder = st.session_state.pos_order
+        all_rows = base_rows + posorder
+        
+        st.sidebar.dataframe(all_rows)
+        st.sidebar.success(f"CSV에서 {len(base_rows)}행을 불러왔습니다.")
+    except ValueError as exc:
+        st.error(str(exc))
+        st.stop()
+
+print(type(base_rows))
+print(type(posorder))
+#+ st.session_state.pos_orders
+
+#3.3 캐시초기화
+if st.sidebar.button("함수 캐시 지우기"):
+    get_cached_summary.clear()
+    st.sidebar.success("캐시를 초기화했습니다.")
+if st.sidebar.button("POS 입력 내역 초기화"):
+    st.session_state.pos_order = []
+    st.sidebar.warning("현장 주문 내역이 초기화되었습니다.")
