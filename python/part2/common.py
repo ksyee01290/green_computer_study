@@ -14,7 +14,7 @@ def parse_sales(raw):
             raise ValueError('필수 열 순서: product,quantity,price')
         rows = []
         for number, source in enumerate(reader,2):
-            print(source)
+            #print(source)
             if len(rows) >= 1000:
                 raise ValueError('데이터는 1000행 이하로 준비하세요.')
             if set(source) != set(FIELDS) or None in source.values():
@@ -39,6 +39,14 @@ def parse_sales(raw):
     except csv.Error as exc:
         raise ValueError('CSV 형식을 확인하세요.') from exc
 
-# def summarize(rows):
-#     by_product = {}
-#     for row in rows:
+def summarize(rows):
+    by_product = {}
+    for row in rows:
+        name = row['product']
+        by_product[name] = by_product.get(name, 0) + row['quantity'] * row['price']
+
+    return {
+        'revenue':sum(by_product.values()),
+        'quantity':sum(row['quantity'] for row in rows),
+        'by_product':by_product
+    }
